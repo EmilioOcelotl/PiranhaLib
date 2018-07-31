@@ -1,6 +1,8 @@
 # PiranhaLib
 
-Clases de SuperCollider para controlar audio/video. 
+Clases de SuperCollider para controlar audio/video.
+
+Secuencian material concreto. Si la plataforma lo permite, también sintético. 
 
 Para instalar PiranhaLib: git clone o descomprimir el archivo en Platform.userExtensionDir;
 
@@ -12,6 +14,14 @@ Ej:
 
 CineVivo.load(layer, video)
 
-Lista completa -> CineVivo_keywords.scd
+Lista completa -> cinevivo_keywords.scd
 
-## Más sorpresas próximamente...
+## PirA 
+
+Para secuenciar envolventes y búferes.
+
+Algunos ejemplos -> pira.scd
+
+## Otros Pirs
+
+En contrucción...
