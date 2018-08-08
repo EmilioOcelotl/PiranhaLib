@@ -3,12 +3,12 @@ PirV{
 
 	classvar <n;
 
-	*load {arg pista = 1, video = "prueba", tamX = 1, tamY = 1;
+	*load {arg pista = 1, video = "prueba";
 
 		PirS.n.sendMsg("/load", pista, video); // Hace falta trabajar en piranhavivo para que esto solo cargue
-		PirS.n.sendMsg("/size", pista, tamX, tamY);
-		PirS.n.sendMsg("/opacity", pista, 255);
-		PirS.n.sendMsg("/speed", pista, 1);
+		//PirS.n.sendMsg("/size", pista, tamX, tamY);
+		//PirS.n.sendMsg("/opacity", pista, 255);
+		//PirS.n.sendMsg("/speed", pista, 1);
 		("Cargaste el video ").post;
 		(video).post;
 		(" en la pista ").post;
@@ -22,6 +22,26 @@ PirV{
 
 	}
 
+	*speed{arg layer, speed;
+		PirS.n.sendMsg("/speed", layer, speed);
+	}
+
+	*feedback{arg retroX, retroY;
+
+		PirS.n.sendMsg("/feedback", retroX, retroY);
+		
+	}
+
+	*pos{arg layer, posX, posY;
+		PirS.n.sendMsg("/pos", layer, posX, posY);
+
+	}
+
+	
+	*size{arg layer, width, height;
+		PirS.n.sendMsg("/size", layer, width, height);
+	}
+	
 	*freeAll {
 
 		Tdef(\detall, { loop { 0.1.wait; "-----|||staaapAll|||-----".postln}});	
