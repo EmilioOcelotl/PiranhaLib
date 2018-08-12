@@ -29,7 +29,7 @@ PirV{
 	*feedback{arg retroX, retroY;
 
 		PirS.n.sendMsg("/feedback", retroX, retroY);
-		
+
 	}
 
 	*pos{arg layer, posX, posY;
@@ -37,20 +37,29 @@ PirV{
 
 	}
 
-	
+	*load3d{arg layer =1, modelo ="rggtrn.obj";
+		PirS.n.sendMsg("/load3d", layer, modelo);
+
+	}
+
+
 	*size{arg layer, width, height;
 		PirS.n.sendMsg("/size", layer, width, height);
 	}
-	
+
+	*rot{arg layer, rotX, rotY, rotZ;
+		PirS.n.sendMsg("/rot", layer, rotX, rotY, rotZ);
+	}
+
 	*freeAll {
 
-		Tdef(\detall, { loop { 0.1.wait; "-----|||staaapAll|||-----".postln}});	
-		//("-----|||DETALL|||-----").postln;	
+		Tdef(\detall, { loop { 0.1.wait; "-----|||staaapAll|||-----".postln}});
+		//("-----|||DETALL|||-----").postln;
 		Tdef(\detall).play;
 		~mezcla.free;
 
-		9.do({arg i; PirS.n.sendMsg("/free", i)}); 
-		
+		9.do({arg i; PirS.n.sendMsg("/free", i)});
+
 		//PirS.n.sendMsg("/free", 1);
 		//PirS.n.sendMsg("/free", 2);
 		//PirS.n.sendMsg("/free", 3);
@@ -60,14 +69,14 @@ PirV{
 		//PirS.n.sendMsg("/free", 7);
 		//PirS.n.sendMsg("/free", 8);
 		//PirS.n.sendMsg("/free", 9);
-		
+
 	}
 
 	/// Para reproducir todo
 
 	*playAll {
-		Tdef(\detall).clear;	
-		("-----|||playAll|||-----").postln;	
+		Tdef(\detall).clear;
+		("-----|||playAll|||-----").postln;
 		~mezcla.play;
 
 		9.do({arg i; PirS.n.sendMsg("/load", i)});
@@ -81,13 +90,13 @@ PirV{
 		//PirS.n.sendMsg("/play", 7);
 		//PirS.n.sendMsg("/play", 8);
 		//PirS.n.sendMsg("/play", 9);
-		
+
 	}
-		
+
 	*loadVel {arg pista = 1, multiplicador = #[1], secuencia = #[1], repeticion = inf, lag = 0;
 
 		var v1speed, v1speedrep;
-		
+
 		switch(pista,
 
 			1, {
@@ -199,14 +208,14 @@ PirV{
 			}
 		)
 	}
-	
+
 		*freeVel {arg pista = 1;
 
 			switch(pista,
 
 				1, {
-					~v1speed.free;                                                                                
-					~v1speedrep.free;                                                                             
+					~v1speed.free;
+					~v1speedrep.free;
 					OSCdef(\listenerv1speed).free;
 					("-----|||Pista 1 desactivada|||-----").postln;
 					("-----|||Modificador: Velocidad|||-----").postln;
@@ -278,9 +287,9 @@ PirV{
 
 
 			)
-			
+
 		}
-	
+
 		*loadOpa {arg pista = 1, multiplicador = #[1], secuencia = #[1], repeticion = inf, lag = 2;
 
 		switch(pista,
@@ -394,11 +403,11 @@ PirV{
 			}
 		)
 	}
-	
+
 	*freeOpa {arg pista = 1;
 
 		switch(pista,
-				
+
 			1, {
 				~v1opa.free;
 				~v1opa.free;
@@ -472,7 +481,7 @@ PirV{
 			},
 
 		)
-		
+
 	}
 
 	*loadSync{arg pista = 1, muestra = "SampleHap", multiplicador = 1, secuencia = #[1], repeticion = inf, lag = 2;
@@ -494,7 +503,7 @@ PirV{
 					//PirS.n.sendMsg("/speed", pista, data);
 					if(data == 1, {PirS.n.sendMsg("/load", pista, muestra)});
 				}, '/v1synctag');
-	
+
 			},
 
 			2, {
@@ -502,17 +511,17 @@ PirV{
 				OSCdef(\listenerv2sync).free;
 
 				PirS.n.sendMsg("/speed", pista, multiplicador/2);
-				
+
 				~v2sync = {Demand.kr(Impulse.kr(multiplicador), 0, Dseq(secuencia, repeticion))};
 				~v2syncrep = {SendReply.kr(Impulse.kr(multiplicador), '/v2synctag', ~v2sync.kr)};
-				
+
 				^OSCdef(\listenerv2sync, {|msg|
 					var data = msg[3];
 					//data.postln;
 					//PirS.n.sendMsg("/speed", pista, data);
 					if(data == 1, {PirS.n.sendMsg("/load", pista, muestra)});
 				}, '/v2synctag');
-	
+
 			},
 
 			3, {
@@ -520,7 +529,7 @@ PirV{
 				OSCdef(\listenerv3sync).free;
 
 				PirS.n.sendMsg("/speed", pista, multiplicador/2);
-				
+
 				~v3sync = {Demand.kr(Impulse.kr(multiplicador.abs), 0, Dseq(secuencia, repeticion))};
 				~v3syncrep = {SendReply.kr(Impulse.kr(multiplicador.abs), '/v3synctag', ~v3sync.kr)};
 
@@ -531,7 +540,7 @@ PirV{
 					if(data == 1, {PirS.n.sendMsg("/load", pista, muestra)});
 				}, '/v3synctag');
 
-				
+
 			},
 
 			4, {
@@ -643,7 +652,7 @@ PirV{
 			}
 
 		)
-		
+
 	}
 
 
@@ -652,13 +661,13 @@ PirV{
 		switch(pista,
 
 			1, {
-				~v1sync.free;                                                                                
-				~v1syncrep.free;                                                                             
+				~v1sync.free;
+				~v1syncrep.free;
 				OSCdef(\listenerv1sync).free;
 				("-----|||Pista 1 desactivada|||-----").postln;
 				("-----|||Modificador: Sync|||-----").postln;
 			},
-			
+
 			2, {
 				~v2sync.free;
 				~v2syncrep.free;
@@ -725,7 +734,7 @@ PirV{
 
 
 			)
-			
+
 		}
-	
+
 }
