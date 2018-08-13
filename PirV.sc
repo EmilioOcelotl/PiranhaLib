@@ -93,6 +93,29 @@ PirV{
 
 	}
 
+	*seqFBx{arg multiplicador = #[1], secuencia = #[1], secuencia2 = #[1], repeticion = inf, lag = 0;
+
+		~v1fb = {Lag.kr(Demand.kr(Impulse.kr(multiplicador), 0, Dseq(secuencia, repeticion)), lag)};
+		~v1fbrep = {SendReply.kr(Impulse.kr(12), '/v1fbrep', ~v1fb.kr)};
+
+		^OSCdef(\listenerv1fb, {|msg|
+			var data = msg[3];
+			//data.postln;
+			PirS.n.sendMsg("/feedbackX", data);
+		}, '/v1fbrep');
+
+
+	}
+
+	*freeSeqFB{
+
+		~v1fb.free;
+		~v1fb2.free;
+		~v1fbrep.free;
+		OSCdef(\listenerv1fb).free;
+
+	}
+
 	*loadVel {arg pista = 1, multiplicador = #[1], secuencia = #[1], repeticion = inf, lag = 0;
 
 		var v1speed, v1speedrep;
