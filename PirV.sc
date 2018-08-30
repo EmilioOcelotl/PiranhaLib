@@ -22,6 +22,30 @@ PirV{
 
 	}
 
+	*code {arg onOff = 0;
+		PirS.n.sendMsg("/textON", onOff);
+	}
+
+	*message {arg message = "";
+		PirS.n.sendMsg("/message", message);
+	}
+
+	*loadFbo {arg video = "";
+		PirS.n.sendMsg("/loadFbo", 1, video);
+	}
+
+	*freeFbo {arg video = "";
+		PirS.n.sendMsg("/loadFbo", 0, video);
+	}
+
+	*fboSpeed {arg fboSpeed = 1;
+		PirS.n.sendMsg("/fboSpeed", fboSpeed);
+	}
+
+	*glitch {arg onOff = 0, glitch = 0;
+		PirS.n.sendMsg("/glitch", onOff, glitch);
+	}
+
 	*speed{arg layer, speed;
 		PirS.n.sendMsg("/speed", layer, speed);
 	}
