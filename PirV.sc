@@ -22,12 +22,20 @@ PirV{
 
 	}
 
-	*code {arg onOff = 0;
-		PirS.n.sendMsg("/textON", onOff);
+	*text {arg onOff = 0, fixON = 1;
+		PirS.n.sendMsg("/textON", onOff, fixON);
 	}
 
 	*message {arg message = "";
 		PirS.n.sendMsg("/message", message);
+	}
+
+	*opacity {arg layer = 1, opacity = 255;
+		PirS.n.sendMsg("/opacity", layer, opacity);
+	}
+
+	*light {arg onOff = 0;
+		PirS.n.sendMsg("/lightON", onOff);
 	}
 
 	*loadFbo {arg video = "";
