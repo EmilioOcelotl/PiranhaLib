@@ -26,11 +26,23 @@ PirV{
 		PirS.n.sendMsg("/textON", onOff, fixON);
 	}
 
-	*message {arg message = "";
+	*msg {arg message = "";
 		PirS.n.sendMsg("/message", message);
 	}
 
-	*opacity {arg layer = 1, opacity = 255;
+	*tempo {arg tempo = 1;
+		PirS.n.sendMsg("/tempo", tempo);
+	}
+
+	*auto {arg tempo = 1;
+		PirS.n.sendMsg("/tempo", tempo);
+	}
+
+	*fbON {arg onOff = 1;
+		PirS.n.sendMsg("/feedbackON", message);
+	}
+
+	*op {arg layer = 1, opacity = 255;
 		PirS.n.sendMsg("/opacity", layer, opacity);
 	}
 
@@ -64,8 +76,8 @@ PirV{
 
 	}
 
-	*pos{arg layer, posX, posY;
-		PirS.n.sendMsg("/pos", layer, posX, posY);
+	*pos{arg layer, posX, posY, posZ;
+		PirS.n.sendMsg("/pos", layer, posX, posY, posZ);
 
 	}
 
