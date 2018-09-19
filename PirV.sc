@@ -34,6 +34,10 @@ PirV{
 		PirS.n.sendMsg("/tempo", tempo);
 	}
 
+	*orbit {arg onOff = 0, orbitX = 0, orbitY = 0;
+		PirS.n.sendMsg("/autoOrbit", onOff, orbitX, orbitY);
+	}
+
 	*fbON {arg onOff = 1;
 		PirS.n.sendMsg("/feedbackON", onOff);
 	}
