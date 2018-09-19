@@ -34,12 +34,8 @@ PirV{
 		PirS.n.sendMsg("/tempo", tempo);
 	}
 
-	*auto {arg tempo = 1;
-		PirS.n.sendMsg("/tempo", tempo);
-	}
-
 	*fbON {arg onOff = 1;
-		PirS.n.sendMsg("/feedbackON", message);
+		PirS.n.sendMsg("/feedbackON", onOff);
 	}
 
 	*op {arg layer = 1, opacity = 255;
