@@ -38,7 +38,7 @@ PirV{
 		PirS.n.sendMsg("/autoOrbit", onOff, orbitX, orbitY);
 	}
 
-	*fbON {arg onOff = 1;
+	*fb {arg onOff = 1;
 		PirS.n.sendMsg("/feedbackON", onOff);
 	}
 
@@ -50,20 +50,44 @@ PirV{
 		PirS.n.sendMsg("/lightON", onOff);
 	}
 
-	*loadFbo {arg video = "";
-		PirS.n.sendMsg("/loadFbo", 1, video);
-	}
-
-	*freeFbo {arg video = "";
-		PirS.n.sendMsg("/loadFbo", 0, video);
-	}
-
-	*fboSpeed {arg fboSpeed = 1;
-		PirS.n.sendMsg("/fboSpeed", fboSpeed);
-	}
-
 	*glitch {arg onOff = 0, glitch = 0;
 		PirS.n.sendMsg("/glitch", onOff, glitch);
+	}
+
+	*model {arg onOff = 0;
+		PirS.n.sendMsg("/modelON", onOff);
+	}
+
+	*multiModel {arg onOff = 0, layer = 1, model = "";
+		PirS.n.sendMsg("/multiModel", onOff, layer, model);
+	}
+
+	*multiModelPos {arg layer = 1, posX = 0, posY = 0, posZ = 0;
+		PirS.n.sendMsg("/multiModelPos", layer, posX, posY, posZ);
+	}
+
+	*multiModelRot {arg layer = 1, rotX = 0, rotY = 0, rotZ = 0;
+		PirS.n.sendMsg("/multiModelRot", layer, rotX, rotY, rotZ);
+	}
+
+	*blur {arg onOff=0, value=1;
+		PirS.n.sendMsg("/blur", onOff, value);
+	}
+
+	*icos {arg onOff=0;
+		PirS.n.sendMsg("/icosON", onOff);
+	}
+
+	*stars {arg onOff=0;
+		PirS.n.sendMsg("/stars", onOff);
+	}
+
+	*names {arg onOff=0;
+		PirS.n.sendMsg("/namesON", onOff);
+	}
+
+	*glitchColor {arg onOff=0, glitch = 0;
+		PirS.n.sendMsg("/glitchColor", onOff, glitch);
 	}
 
 	*speed{arg layer, speed;
