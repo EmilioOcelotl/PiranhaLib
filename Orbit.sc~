@@ -1,0 +1,39 @@
+
+// Orbit
+
+Orbit{
+	
+	classvar <n; classvar <q;  classvar <server;
+
+	*start{arg direccion = "127.0.0.1", puerto = 5612;	
+		("-----|||PiranhaLib|||-----").postln;
+		//("-----|||Ajúuuuuuua|||-----").postln;
+		n = NetAddr(direccion, puerto);
+		server = Server.local;
+	}
+
+	*vload {arg layer = 1, name = "samplehap";
+		PirS.n.sendMsg("/vload", layer, name);	
+	}
+
+	*vfree {arg layer = 1;
+		PirS.n.sendMsg("/vfree", layer);
+	}
+
+	*vspeed {arg layer = 1, speed = 1;
+		PirS.n.sendMsg("/vspeed", layer, speed);
+	}
+
+	*light {arg onOff = 1;
+		PirS.n.sendMsg("/light", onOff);
+	}
+
+	*cbackground {arg onOff = 1;
+		PirS.n.sendMsg("/cbackground", onOff);
+	}
+
+	*vfree {arg layer = 1;
+		PirS.n.sendMsg("/vfree", layer);
+	}
+
+}
