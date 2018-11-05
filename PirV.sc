@@ -35,7 +35,7 @@ PirV{
 	}
 
 	*orbit {arg onOff = 0, orbitX = 0, orbitY = 0;
-		PirS.n.sendMsg("/autoOrbit", onOff, orbitX, orbitY);
+		PirS.n.sendMsg("/orbit", onOff, orbitX, orbitY);
 	}
 
 	*fb {arg onOff = 1;
@@ -95,9 +95,7 @@ PirV{
 	}
 
 	*feedback{arg retroX, retroY;
-
 		PirS.n.sendMsg("/feedback", retroX, retroY);
-
 	}
 
 	*pos{arg layer, posX, posY, posZ;
@@ -109,7 +107,6 @@ PirV{
 		PirS.n.sendMsg("/load3d", layer, modelo);
 
 	}
-
 
 	*size{arg layer, width, height;
 		PirS.n.sendMsg("/size", layer, width, height);
