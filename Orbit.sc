@@ -81,7 +81,7 @@ Orb{
 	}
 
 	*mload {arg layer = 1, model = "stone";
-		PirS.n.sendMsg("/mload", layer, model);
+		Orb.n.sendMsg("/mload", layer, model);
 	}
 
 	*mfree {arg layer = 1;
