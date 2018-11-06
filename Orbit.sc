@@ -57,7 +57,7 @@ Orb{
 	}
 
 	*fb {arg onOff = 1;
-		Orb.n.sendMsg("/feedbackON", onOff);
+		Orb.n.sendMsg("/fb", onOff);
 	}
 
 	*fbxy {arg fbx = 40, fby = 40;
@@ -92,8 +92,8 @@ Orb{
 		Orb.n.sendMsg("/mpos", layer, posX, posY, posZ);
 	}
 
-	*mscale {arg scale = 1;
-		Orb.n.sendMsg("/mscale", scale);
+	*mscale {arg layer = 1, scale = 1;
+		Orb.n.sendMsg("/mscale", layer, scale);
 	}
 
 	*mrot {arg layer = 1, rotX = 0, rotY = 0, rotZ = 0;
