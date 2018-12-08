@@ -220,5 +220,17 @@ Orb{
 		Orb.n.sendMsg("/camdistance", camdist);
 	}
 
+	*starsnum {arg starsnum = 100;
+		Orb.n.sendMsg("/starsnum", starsnum);
+	}
+
+	*starssize {arg starssize = 1;
+		Orb.n.sendMsg("/starssize", starssize);
+	}
+
+	*starsdisp {arg starsdisp = 100;
+		Orb.n.sendMsg("/starsdisp", starsdisp);
+	}
+
 
 }
