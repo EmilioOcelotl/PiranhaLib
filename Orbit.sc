@@ -209,7 +209,7 @@ Orb{
 	}
 
 	*sphoutr {arg radio = 50;
-		Orb.n.sendMsg("/sphinr", radio);
+		Orb.n.sendMsg("/sphoutr", radio);
 	}
 
 	*lookat {arg camposX = 0, camposY = 0, camposZ = 0;
