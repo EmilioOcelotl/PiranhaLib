@@ -148,8 +148,8 @@ Orb{
 		Orb.n.sendMsg("/stars", onOff);
 	}
 
-	*orbit {arg onOff = 0, orbitX = 0, orbitY = 0;
-		Orb.n.sendMsg("/orbit", onOff, orbitX, orbitY);
+	*orbit {arg orbitX = 0, orbitY = 0;
+		Orb.n.sendMsg("/orbit", orbitX, orbitY);
 	}
 
 	*glitch {arg onOff = 0, glitch = 0; 
