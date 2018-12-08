@@ -192,4 +192,33 @@ Orb{
 		Orb.n.sendMsg("/meshscale", meshScale);
 	}
 
+	*lightmode {arg lightmode = "white";
+		Orb.n.sendMsg("/lightmode", lightmode);
+	}
+	
+	*sphin {arg onOff = 0;
+		Orb.n.sendMsg("/sphin", onOff);
+	}
+
+	*sphout {arg onOff = 0;
+		Orb.n.sendMsg("/sphout", onOff);
+	}
+
+	*sphinr {arg radio = 50;
+		Orb.n.sendMsg("/sphinr", radio);
+	}
+
+	*sphoutr {arg radio = 50;
+		Orb.n.sendMsg("/sphinr", radio);
+	}
+
+	*lookat {arg camposX = 0, camposY = 0, camposZ = 0;
+		Orb.n.sendMsg("/lookat", camposX, camposY, camposZ);
+	}
+
+	*camdistance {arg camdist = 100;
+		Orb.n.sendMsg("/camdistance", camdist);
+	}
+
+
 }
