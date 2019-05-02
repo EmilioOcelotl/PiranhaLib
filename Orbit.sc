@@ -232,5 +232,18 @@ Orb{
 		Orb.n.sendMsg("/starsdisp", starsdisp);
 	}
 
+        *fboamount {arg fboamount = 20;
+                Orb.n.sendMsg("/fboamount", fboamount);
+        }
+
+        *clearfbo {arg clearfbo = 1;
+                Orb.n.sendMsg("/clearfbo", clearfbo);
+        }
+
+        *boxes {arg boxes = 1;
+                Orb.n.sendMsg("/boxes", boxes);
+        }
+
+
 
 }
